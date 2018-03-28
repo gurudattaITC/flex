@@ -35,13 +35,7 @@
    	 <include name="**/*.properties"/>
   	</fileset>
 	 </copy>
-	  <mkdir dir="${app.lib.dir}" />
-	<copy todir="${app.lib.dir}">
- 	 <fileset dir="${lib.dir}">
-  	  <include name="**/*.*"/>
-   	
-  	</fileset>
-	 </copy>
+	  
 	
         <project.javac srcdir="${app.src.dir}" destdir="${app.classes.dir}" />
         <jar destfile="${app.jar.pathname}" basedir="${app.classes.dir}">
@@ -67,7 +61,7 @@
     </target>
 
     <target name="test" depends="build">
-        <junit printsummary="on" haltonfailure="yes" fork="true">
+        <junit printsummary="on" haltonfailure="no" fork="true">
             <classpath>
                 <fileset dir="${lib.dir}" includes="**/*.jar"/>
                 <path location="${app.jar.pathname}"/>
@@ -75,7 +69,7 @@
             </classpath>
             <formatter type="brief" usefile="false" />
             <batchtest>
-                <fileset dir="${tests.src.dir}" includes="**/*Test.java" />
+                <fileset dir="${tests.src.dir}" includes="**/*.java" />
             </batchtest>
         </junit>
     </target>
@@ -97,7 +91,7 @@
         <fileset dir="${basedir}" includes="build/**"></fileset>
     </copy>
 
-    <zip destfile="${zipfolder}.zip">
+    <zip destfile="${zipfolder}.jar">
         <zipfileset dir="${basedir}">
             <include name="${zipfolder}/**/**"></include>
         </zipfileset>
