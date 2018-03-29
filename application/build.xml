@@ -67,9 +67,10 @@
                 <path location="${app.jar.pathname}"/>
                 <pathelement location="${tests.classes.dir}"/>
             </classpath>
-            <formatter type="xml" outfile="result" />
+            <formatter type="xml"  />
             <batchtest>
                 <fileset dir="${tests.src.dir}" includes="**/*.java" />
+		<outfile="result" />
             </batchtest>
         </junit>
     </target>
