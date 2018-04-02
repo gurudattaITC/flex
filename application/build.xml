@@ -85,6 +85,6 @@
 	</target>
 	
 	<!-- Default, run this -->
-	<target name="main" depends="clean, compile, dist" />
+	<target name="main" depends="init,clean, compile, dist" />
 	
 </project>
