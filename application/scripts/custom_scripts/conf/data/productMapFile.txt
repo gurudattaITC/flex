@@ -1,0 +1,1 @@
+LCSProduct~create~com.lcs.wc.load.LoadProduct.createProduct~flexAttproductName:SearchCriteria~Type~SeasonflexAttseasonName:SearchCriteria~UPDATEMODE~CONSTANTVALUE:MODE=UPDATE~CONSTANTVALUE:Type=Product

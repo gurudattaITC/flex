@@ -1,0 +1,90 @@
+<project name="flexplm" default="main" basedir=".">
+	<description>
+		Create a Java Project (JAR) with Ant build script
+	</description>
+
+	<property name="projectName" value="flexplm" />
+	
+	<!-- Java sources -->
+	<property name="src.dir" location="src" />
+	
+	<!-- Codebase sources -->
+	<property name="codebase.dir" location="codebase" />
+	
+	<!-- Scripts sources -->
+	<property name="scripts.dir" location="scripts" />
+	
+	<!-- Java classes -->
+	<property name="build.dir" location="build" />
+	
+	<!-- Output, Jar -->
+	<property name="dist.dir" location="dist" />
+	
+	<!-- Library, lib -->
+	<property name="lib.dir" location="lib" />
+	
+	
+	<path id="build_classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build.dir}" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<!-- Compile the java code from ${src.dir} into ${build.dir} -->
+		<mkdir dir="${build.dir}/codebase" />
+		<mkdir dir="${build.dir}/src" />
+		<mkdir dir="${build.dir}/custom_scripts" />
+		<javac includeantruntime="false" srcdir="${src.dir}" destdir="${build.dir}/codebase" >
+			<classpath>
+				<path refid="build_classpath"/>
+			</classpath>
+		</javac>
+		<javac includeantruntime="false" srcdir="${scripts.dir}/custom_scripts" destdir="${build.dir}/custom_scripts" >
+			<classpath>
+				<path refid="build_classpath"/>
+			</classpath>
+		</javac>
+		<copy todir="${build.dir}/codebase" >  
+			<fileset dir="${codebase.dir}" includes="**"/>  
+		</copy> 
+		<copy todir="${build.dir}/src" >  
+			<fileset dir="${src.dir}" includes="**"/>  
+		</copy>
+		<copy todir="${build.dir}" >  
+			<fileset dir="${scripts.dir}" includes="**"/>  
+		</copy>
+		<copy file="${scripts.dir}/custom_scripts/src/log4j.properties" tofile="${build.dir}/custom_scripts/log4j.properties"/>
+		<copy file="${scripts.dir}/custom_scripts/src/selenium.properties" tofile="${build.dir}/custom_scripts/selenium.properties"/>
+		<copy file="${scripts.dir}/custom_scripts/src/testing.xml" tofile="${build.dir}/custom_scripts/testing.xml"/>
+	</target>
+
+	<target name="dist" depends="compile" description="package, output to JAR">
+
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist.dir}" />
+
+		<!-- Put everything in ${build} into the {$projectName}-${DSTAMP}.jar file -->
+		<jar jarfile="${dist.dir}/${projectName}-${DSTAMP}${TSTAMP}.jar" basedir="${build.dir}" >
+		    
+		</jar>
+	</target>
+
+	<target name="clean" description="clean up">
+		<delete verbose="true" includeemptydirs="true">
+			<fileset dir="${build.dir}" includes="**/*" />
+		</delete>
+		
+	</target>
+	
+	<!-- Default, run this -->
+	<target name="main" depends="clean, compile, dist" />
+	
+</project>
