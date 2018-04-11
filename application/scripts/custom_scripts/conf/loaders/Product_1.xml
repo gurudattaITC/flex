@@ -12181,7 +12181,7 @@
    <csvPropertyValue handler="com.ptc.core.lwc.server.TypeDefinitionLoader.processAttributePropertyValue">
       <csvname>flexAttEnabled</csvname>
       <csvisDefault>false</csvisDefault>
-      <csvvalue>true</csvvalue>
+      <csvvalue>false</csvvalue>
    </csvPropertyValue>
    <csvPropertyValue handler="com.ptc.core.lwc.server.TypeDefinitionLoader.processAttributePropertyValue">
       <csvname>flexAttSettable</csvname>
