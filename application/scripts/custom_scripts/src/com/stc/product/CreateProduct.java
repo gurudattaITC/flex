@@ -16,7 +16,7 @@ public class CreateProduct extends TestManager {
 	@Test
 	public void create() throws Exception {
 		
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		
 		// Switch to header frame to search for product
 		driver.switchTo().defaultContent();		
