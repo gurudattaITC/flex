@@ -11907,12 +11907,12 @@
    <csvPropertyValue handler="com.ptc.core.lwc.server.TypeDefinitionLoader.processAttributePropertyValue">
       <csvname>flexAttSettable</csvname>
       <csvisDefault>false</csvisDefault>
-      <csvvalue>true</csvvalue>
+      <csvvalue>false</csvvalue>
    </csvPropertyValue>
    <csvPropertyValue handler="com.ptc.core.lwc.server.TypeDefinitionLoader.processAttributePropertyValue">
       <csvname>flexAttUpdateable</csvname>
       <csvisDefault>false</csvisDefault>
-      <csvvalue>true</csvvalue>
+      <csvvalue>false</csvvalue>
    </csvPropertyValue>
    <csvPropertyValue handler="com.ptc.core.lwc.server.TypeDefinitionLoader.processAttributePropertyValue">
       <csvname>flexAttQuickInfo</csvname>
