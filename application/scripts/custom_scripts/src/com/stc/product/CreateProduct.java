@@ -89,7 +89,7 @@ public class CreateProduct extends TestManager {
 			productSaveButton = driver.findElement(By.id("saveButton"));
 			productSaveButton.click();
 			
-			driver.quit();
+			//driver.quit();
 		
 		} catch(Exception e) {
 			System.out.println(e);
