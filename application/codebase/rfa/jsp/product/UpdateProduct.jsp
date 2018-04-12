@@ -87,13 +87,7 @@
 
 	
     function validate(){ 
-	var productRange = document.MAINFORM.ptc_lng_1Input.value;
-	//alert(productRange);
-	if(productRange<0 || productRange>30) {
-		alert('Invalid Product Range. Should be between 0 and 30');
-		return false;
-		
-	}
+	
       <%if(updateName){%>
       <%= flexg.drawFormValidation(type.getAttribute("productName")) %>
       <%}%>
