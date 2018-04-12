@@ -99,7 +99,7 @@ public class TestManager {
 	@AfterSuite
 	public void afterSuite(XmlTest xml) {
 		MessageUtil.setMessage("End Suite : " + xml.getSuite().getName());
-		//driver.quit();		
+		driver.quit();		
 	}
 	
 	public void init(String title) {
