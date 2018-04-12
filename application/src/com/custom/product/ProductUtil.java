@@ -29,13 +29,17 @@ public class ProductUtil {
 		
 		// Convert to LCSProduct Object
 		LCSProduct product = (LCSProduct) obj;
-		// Get identifier from Product object
-		String uniqueIdentifier = (String) product.getValue("uniqueIdentifier");
-		System.out.println("uniqueIdentifier : " + uniqueIdentifier);
-		if(uniqueIdentifier==null || "".equals(uniqueIdentifier.trim())) {
-			// Set value to identifier new
-			product.setValue("uniqueIdentifier", UUID.randomUUID().toString());
-			LCSLogic.persist(product, true);
+			try {
+			// Get identifier from Product object
+			String uniqueIdentifier = (String) product.getValue("uniqueIdentifier");
+			System.out.println("uniqueIdentifier : " + uniqueIdentifier);
+			if(uniqueIdentifier==null || "".equals(uniqueIdentifier.trim())) {
+				// Set value to identifier new
+				product.setValue("uniqueIdentifier", UUID.randomUUID().toString());
+				LCSLogic.persist(product, true);
+			}
+		} catch(WTException e) {
+			System.out.println(e);		
 		}
 	}
 	
