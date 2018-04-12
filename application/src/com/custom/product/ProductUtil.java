@@ -34,8 +34,8 @@ public class ProductUtil {
 		System.out.println("uniqueIdentifier : " + uniqueIdentifier);
 		if(uniqueIdentifier==null || "".equals(uniqueIdentifier.trim())) {
 			// Set value to identifier new
-			product.setValue("uniqueIdentifier", UUID.randomUUID().toString());
-			LCSLogic.persist(product, true);
+			//product.setValue("uniqueIdentifier", UUID.randomUUID().toString());
+			//LCSLogic.persist(product, true);
 		}
 	}
 	
