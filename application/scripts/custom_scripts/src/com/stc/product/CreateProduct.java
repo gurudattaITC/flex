@@ -93,7 +93,7 @@ public class CreateProduct extends TestManager {
 			System.out.println(e);
 		}
 		
-		driver.quit();
+		//driver.quit();
 
 		
 	}
