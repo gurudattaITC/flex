@@ -88,6 +88,8 @@ public class CreateProduct extends TestManager {
 			driver.switchTo().frame("contentframe");
 			productSaveButton = driver.findElement(By.id("saveButton"));
 			productSaveButton.click();
+			
+			drive.quit();
 		
 		} catch(Exception e) {
 			System.out.println(e);
