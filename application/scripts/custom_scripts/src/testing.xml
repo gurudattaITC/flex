@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" configfailurepolicy="skip">
+<suite name="Suite" configfailurepolicy="continue">
   <test name="createproduct">
   	<classes>
        <class name="com.stc.product.CreateProduct" />
     </classes>
   </test>
-
+    <test name="createcolorwayaccess">
+  	<classes>
+       <class name="com.stc.product.CreateColorwayAccessCheck" />
+    </classes>
+  </test>
+    <test name="createseasonaccess">
+  	<classes>
+       <class name="com.stc.product.CreateSeasonAccessCheck" />
+    </classes>
+  </test>
+    <test name="updateproductaccess">
+  	<classes>
+       <class name="com.stc.product.UpdateAccessRemovedOnProduct" />
+    </classes>
+  </test>
+    <test name="updateskuaccess">
+  	<classes>
+       <class name="com.stc.product.UpdateAccessRemovedOnSKU" />
+    </classes>
+  </test>
 </suite> <!-- Suite -->
