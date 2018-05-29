@@ -74,14 +74,16 @@ public class UpdateAccessRemovedOnSKU extends TestManager {
 			driver.switchTo().frame("contentframe");
 			WebElement productSeasonActions = driver.findElements(By.id("prodseasonActions")).get(1);
 			(new Select(productSeasonActions)).selectByVisibleText("Update Colorway");
-	
+			System.out.println("Before checking the element");
 			if(driver.findElements(By.xpath("//div[@id='fileDropZone']//table//tbody//tr//td[contains(text(),'ColorwayIdentification')]")).size()!=0){
-				//assertTrue(false, "Update Colorway Access is not Removed.");
-				assertEquals(false, true, "Update Colorway Access is not Removed.");
+				System.out.println("Found the element");
+				assertTrue(false, "Update Colorway Access is not Removed.");
+				System.out.println("I am trying now with assertEquals...");
+				assertEquals((2>3), (3>2), "Update Colorway Access is not Removed.");
 				//throw new Exception("Update Colorway Access is not Removed.");
 			}
-			
-		
+		System.out.println("Everyone cheated me...I am trying one last option..pls help me");
+		assertTrue((2>3), "Update Jenkins Job.");
 		} catch(Exception e) {
 			System.out.println(e);
 			//throw e;
