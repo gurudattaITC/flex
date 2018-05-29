@@ -75,7 +75,8 @@ public class UpdateAccessRemovedOnSKU extends TestManager {
 			(new Select(productSeasonActions)).selectByVisibleText("Update Colorway");
 	
 			if(driver.findElements(By.xpath("//div[@id='fileDropZone']//table//tbody//tr//td[contains(text(),'ColorwayIdentification')]")).size()!=0){
-				assertTrue(false, "Update Colorway Access is not Removed.");
+				//assertTrue(false, "Update Colorway Access is not Removed.");
+				assertEquals(false, true, "Update Colorway Access is not Removed.");
 				//throw new Exception("Update Colorway Access is not Removed.");
 			}
 			
