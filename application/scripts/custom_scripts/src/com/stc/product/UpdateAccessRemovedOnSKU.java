@@ -1,5 +1,7 @@
 package com.stc.product;
 
+import static org.testng.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -73,13 +75,14 @@ public class UpdateAccessRemovedOnSKU extends TestManager {
 			(new Select(productSeasonActions)).selectByVisibleText("Update Colorway");
 	
 			if(driver.findElements(By.xpath("//div[@id='fileDropZone']//table//tbody//tr//td[contains(text(),'ColorwayIdentification')]")).size()!=0){
-				throw new Exception("Update Colorway Access is not Removed.");
+				assertTrue(false, "Update Colorway Access is not Removed.");
+				//throw new Exception("Update Colorway Access is not Removed.");
 			}
 			
 		
 		} catch(Exception e) {
-			//System.out.println(e);
-			throw e;
+			System.out.println(e);
+			//throw e;
 		}
 		
 		//driver.quit();
