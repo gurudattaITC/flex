@@ -2,6 +2,7 @@ package com.stc.product;
 
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -87,7 +88,7 @@ public class UpdateAccessRemovedOnSKU extends TestManager {
 		} catch(Exception e) {
 			System.out.println(e);
 			//throw e;
-			Assert.fail("Assertion Failed--"+e.getMessage())
+			Assert.fail("Assertion Failed--"+e.getMessage());
 		}
 		
 		//driver.quit();
