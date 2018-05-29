@@ -86,7 +86,8 @@ public class UpdateAccessRemovedOnSKU extends TestManager {
 		assertTrue((2>3), "Update Jenkins Job.");
 		} catch(Exception e) {
 			System.out.println(e);
-			throw e;
+			//throw e;
+			Assert.fail("Assertion Failed--"+e.getMessage())
 		}
 		
 		//driver.quit();
