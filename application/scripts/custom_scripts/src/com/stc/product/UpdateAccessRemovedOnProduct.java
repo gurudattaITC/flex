@@ -1,5 +1,7 @@
 package com.stc.product;
 
+import static org.testng.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -57,13 +59,14 @@ public class UpdateAccessRemovedOnProduct extends TestManager {
 			(new Select(productSeasonActions)).selectByVisibleText("Update Product");
 	
 			if(driver.findElements(By.xpath("//div[@id='fileDropZone']//table//tbody//tr//td[contains(text(),'Product Identification')]")).size()!=0){
-				throw new Exception("Update Product Access is Enabled.");
+				assertTrue(false, "Update Product Access is Enabled.");
+				//throw new Exception("Update Product Access is Enabled.");
 			}
 			
 		
 		} catch(Exception e) {
-			//System.out.println(e);
-			throw e;
+			System.out.println(e);
+			//throw e;
 		}
 		
 		//driver.quit();
