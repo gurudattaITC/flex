@@ -81,7 +81,7 @@ public class UpdateAccessRemovedOnSKU extends TestManager {
 				assertTrue(false, "Update Colorway Access is not Removed.");
 				System.out.println("I am trying now with assertEquals...");
 				assertEquals((2>3), (3>2), "Update Colorway Access is not Removed.");
-				throw new Exception("Update Colorway Access is not Removed.");
+				//throw new Exception("Update Colorway Access is not Removed.");
 			}
 		System.out.println("Everyone cheated me...I am trying one last option..pls help me");
 		assertTrue((2>3), "Update Jenkins Job.");
