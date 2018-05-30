@@ -22,7 +22,7 @@ import com.stc.util.PropertyUtil;
 public class UpdateAccessRemovedOnSKU extends TestManager {
 	private String className = this.getClass().getName();
 	@Test
-	public void create() throws Exception {
+	public void AccessRemovedOnSKU() throws Exception {
 		String methodName = new Object() {}.getClass().getEnclosingMethod().getName();
 		//Thread.sleep(3000);
 		 String PRODUCT_NO = "11701";

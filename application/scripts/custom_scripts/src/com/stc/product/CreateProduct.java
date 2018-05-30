@@ -18,7 +18,7 @@ import com.stc.core.TestManager;
 public class CreateProduct extends TestManager {
 
 	@Test
-	public void create() throws Exception {
+	public void createProduct() throws Exception {
 		
 		//Thread.sleep(3000);
 		

@@ -1,5 +1,6 @@
 package com.stc.core;
 
+import java.io.PrintWriter;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ import org.testng.xml.XmlTest;
 
 import com.stc.util.MessageUtil;
 import com.stc.util.PropertyUtil;
+//import com.stc.util.RestCall;
 import com.stc.util.Restcall1;
 
 public class TestManager {
@@ -75,7 +77,7 @@ public class TestManager {
 			TreeMap<String,String> failure = new TreeMap<String,String>();
 			failure.put("1_Summary", "[UI - Issue] Failed Test -  " + testResult.getMethod().getMethodName());
 			failure.put("2", "===============================================");
-			failure.put("3_className", 		"Class  ---- "+testResult.getTestClass().getName());
+			failure.put("3_className", 		"Error In ---- "+testResult.getTestClass().getName());
 			failure.put("4_methodName", 	"Method ---- "+testResult.getMethod().getMethodName());
 			failure.put("5_ErrorMessage", 	"Error  ---- "+testResult.getThrowable().getMessage());
 			failure.put("6", "===============================================");
@@ -132,7 +134,7 @@ public class TestManager {
 	
 	@AfterSuite
 	public void afterSuite(ITestContext conf) throws Exception {
-		System.out.println("List of Failure" + listOfFailures.size());
+		System.out.println("List of Failure" + listOfFailures);
 	if(listOfFailures.size()>0){  
 		
         for(int i = 0; i<listOfFailures.size();i++){
@@ -141,14 +143,18 @@ public class TestManager {
               TreeMap<String, String> hashMap = listOfFailures.get(i);
               String summary = hashMap.get("1_Summary");
               String description = "   Issue Log    \n";
-              
+              String className = hashMap.get("3_className");
+              String methodName = hashMap.get("4_methodName");
               Set<String> keys = hashMap.keySet();
               for (String key : keys) {
                      description = description + hashMap.get(key) + " \n ";
                      
               }
-            
-           Restcall1.createnewIssue();
+              String filename = "C:\\Users\\Administrator\\Desktop\\jiradata" + i + ".xml";
+              PrintWriter out = new PrintWriter(filename);
+              out.println("<Asset href=\"/v1sdktesting/rest-1.v1/New/Defect\"><Attribute name=\"Name\" act=\"set\">"+ summary + "</Attribute><Attribute name=\"Description\" act=\"set\">This Test case got Failed while Running Flex Automation Scripts </Attribute><Relation name=\"Scope\" act=\"set\"><Asset href=\"/v1sdktesting/rest-1.v1/Data/Scope/0\" idref=\"Scope:0\" /></Relation></Asset>");
+              out.close();
+              Restcall1.createnewIssue(filename);
              // System.out.println("Invoked Jira create");
         }      
  }else{

@@ -24,7 +24,7 @@ public class UpdateAccessRemovedOnProduct extends TestManager {
 	private String className = this.getClass().getName();
 	@SuppressWarnings("deprecation")
 	@Test
-	public void create() throws Exception {
+	public void AccessRemovedOnProduct() throws Exception {
 		String methodName = new Object() {}.getClass().getEnclosingMethod().getName();
 		String testName = className.substring(className.lastIndexOf(".") + 1) + "-" + methodName;
 		//Thread.sleep(3000);
