@@ -3,9 +3,9 @@
 <suite name="FlexAutomationSuite" verbose="2">
   <test thread-count="5" name="FlexAutomation_Demo">
     <classes>
-      <!--<class name="com.stc.product.CreateProduct" />
+      <class name="com.stc.product.CreateProduct" />
         <class name="com.stc.product.CreateColorwayAccessCheck" />
-        <class name="com.stc.product.CreateSeasonAccessCheck" /> -->  
+        <!--<class name="com.stc.product.CreateSeasonAccessCheck" /> -->  
        <class name="com.stc.product.UpdateAccessRemovedOnProduct" />
        <class name="com.stc.product.UpdateAccessRemovedOnSKU" />
     </classes>

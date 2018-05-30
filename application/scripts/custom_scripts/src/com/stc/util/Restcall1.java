@@ -41,14 +41,7 @@ import org.w3c.dom.NodeList;
 import org.apache.log4j.PropertyConfigurator;
 
 public class Restcall1 {
-
-	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-		Restcall1 re =new Restcall1();
-		re.createnewIssue("summary", "descriptions");
-		
-	}
-		public void createnewIssue(String su , String Des) throws Exception {
+		public static void createnewIssue() throws Exception {
 		URL url = new URL("https://www51.v1host.com/ITCInfotech62/rest-1.v1/Data/Defect");
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
        // logger.info("url: " + url);
@@ -57,30 +50,23 @@ public class Restcall1 {
         String authString = "admin:zicosadmin@123";
         String authStringEnc = "Basic " + new String((new Base64()).encode(authString.getBytes()));
         conn.setRequestProperty("Authorization", authStringEnc.replaceAll("\n", ""));
-
         conn.setDoOutput(true);
         conn.setInstanceFollowRedirects(false);
         conn.setRequestMethod("POST");
         conn.setRequestProperty("Content-Type", "application/xml");
         OutputStream os = conn.getOutputStream();
-
         FileInputStream inputStream = new FileInputStream("C:\\Users\\Administrator\\Desktop\\jiradata.xml");
-        
         TransformerFactory tf = TransformerFactory.newInstance();
         Transformer transformer = tf.newTransformer();
         StreamSource source = new StreamSource(inputStream);
         StreamResult result = new StreamResult(os);
-        transformer.transform(source, result);
-        String xmlString = result.getWriter().toString();
-        System.out.println(xmlString);
+        transformer.transform(source, result);    
         if (200 == conn.getResponseCode()) {
-              System.out.println("success");
+              //System.out.println("success");
         } else {
-        	System.out.println("failure");
+        	//System.out.println("failure");
         }
         }
-		
-		
 }
 
 		

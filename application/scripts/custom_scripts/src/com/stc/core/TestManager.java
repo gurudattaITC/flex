@@ -28,6 +28,7 @@ import org.testng.xml.XmlTest;
 
 import com.stc.util.MessageUtil;
 import com.stc.util.PropertyUtil;
+import com.stc.util.RestCall;
 import com.stc.util.Restcall1;
 
 public class TestManager {
@@ -148,8 +149,8 @@ public class TestManager {
                      
               }
             
-             // RestCall.jiraRestCall.createIssue(summary, description);
-              //System.out.println("Invoked Jira create");
+           Restcall1.createnewIssue();
+             // System.out.println("Invoked Jira create");
         }      
  }else{
  	System.out.println("No Issue Found");
