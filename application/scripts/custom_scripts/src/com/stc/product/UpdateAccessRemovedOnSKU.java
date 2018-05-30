@@ -1,15 +1,14 @@
 package com.stc.product;
 
-import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
-import org.testng.Assert;
+import static org.testng.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-//import junit.framework.Assert;
+import org.testng.Assert;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -21,14 +20,12 @@ import com.stc.core.TestManager;
 import com.stc.util.PropertyUtil;
 
 public class UpdateAccessRemovedOnSKU extends TestManager {
-
+	private String className = this.getClass().getName();
 	@Test
 	public void create() throws Exception {
-		
+		String methodName = new Object() {}.getClass().getEnclosingMethod().getName();
 		//Thread.sleep(3000);
-		
 		 String PRODUCT_NO = "11701";
-		
 		//maximize the window
 		driver.manage().window().maximize();
 
@@ -75,22 +72,21 @@ public class UpdateAccessRemovedOnSKU extends TestManager {
 			driver.switchTo().frame("contentframe");
 			WebElement productSeasonActions = driver.findElements(By.id("prodseasonActions")).get(1);
 			(new Select(productSeasonActions)).selectByVisibleText("Update Colorway");
-			System.out.println("Before checking the element");
+	
 			if(driver.findElements(By.xpath("//div[@id='fileDropZone']//table//tbody//tr//td[contains(text(),'ColorwayIdentification')]")).size()!=0){
-				System.out.println("Found the element");
-				assertTrue(false, "Update Colorway Access is not Removed.");
-				System.out.println("I am trying now with assertEquals...");
-				assertEquals((2>3), (3>2), "Update Colorway Access is not Removed.");
+				//assertTrue(false, "Update Colorway Access is not Removed.");
+				assertEquals(false, true, "Update Colorway Access is not Removed.");
 				//throw new Exception("Update Colorway Access is not Removed.");
 			}
-		System.out.println("Everyone cheated me...I am trying one last option..pls help me");
-		assertTrue((2>3), "Update Jenkins Job.");
-		} catch(Exception e) {
-			System.out.println(e);
-			//throw e;
-			Assert.fail("Assertion Failed--"+e.getMessage());
-		}
+			
 		
+		 } catch (AssertionError e) {
+			//logger.fail("Assertion Failed--" + e.getMessage());
+			Assert.fail("Assertion Failed--" + e.getMessage());
+		} catch (Exception e) {
+			//logger.fail("Exception Occured--" + e.getMessage());
+			Assert.fail("Exception Occured--" + e.getMessage());
+		}
 		//driver.quit();
 
 		

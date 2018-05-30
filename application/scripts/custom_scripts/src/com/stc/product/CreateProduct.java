@@ -1,7 +1,11 @@
 package com.stc.product;
 
+import static org.testng.Assert.assertTrue;
+
 import java.security.SecureRandom;
 import java.util.concurrent.TimeUnit;
+
+import org.testng.Assert;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -75,9 +79,9 @@ public class CreateProduct extends TestManager {
 			driver.switchTo().frame("contentframe");
 			WebElement productDetails = driver.findElement(By.linkText("Details"));
 			productDetails.click();
-			
+			assertTrue(true);
 			//WebDriverWait wait=new WebDriverWait(driver, 30);
-			while(driver.findElements(By.id("prodseasonActions")).size()==1) {
+			/*while(driver.findElements(By.id("prodseasonActions")).size()==1) {
 				
 			}
 			
@@ -88,11 +92,14 @@ public class CreateProduct extends TestManager {
 			driver.switchTo().frame("contentframe");
 			productSaveButton = driver.findElement(By.id("saveButton"));
 			productSaveButton.click();
-			
-			//driver.quit();
+		*/
 		
-		} catch(Exception e) {
-			System.out.println(e);
+		} catch (AssertionError e) {
+			//logger.fail("Assertion Failed--" + e.getMessage());
+			Assert.fail("Assertion Failed--" + e.getMessage());
+		} catch (Exception e) {
+			//logger.fail("Exception Occured--" + e.getMessage());
+			Assert.fail("Exception Occured--" + e.getMessage());
 		}
 		
 		//driver.quit();
