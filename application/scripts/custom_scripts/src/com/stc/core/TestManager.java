@@ -149,7 +149,7 @@ public class TestManager {
               }
             
              // RestCall.jiraRestCall.createIssue(summary, description);
-              System.out.println("Invoked Jira create");
+              //System.out.println("Invoked Jira create");
         }      
  }else{
  	System.out.println("No Issue Found");
